@@ -1,0 +1,31 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+			<stop offset="0%" stop-color="#2c003e"/>
+			<stop offset="100%" stop-color="#12001f"/>
+		</radialGradient>
+		<linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#FFD700"/>
+			<stop offset="100%" stop-color="#CFA600"/>
+		</linearGradient>
+	</defs>
+
+	<circle cx="128" cy="128" r="128" fill="url(#bgGrad)" />
+
+	<!-- Neural Zodiac Ring -->
+	<circle cx="128" cy="128" r="90" stroke="url(#gold)" stroke-width="4" fill="none" />
+	<g stroke="#FFD700" stroke-width="2">
+		<line x1="128" y1="38" x2="128" y2="218" />
+		<line x1="38" y1="128" x2="218" y2="128" />
+		<line x1="68" y1="68" x2="188" y2="188" />
+		<line x1="188" y1="68" x2="68" y2="188" />
+	</g>
+
+	<!-- Core Spark -->
+	<circle cx="128" cy="128" r="6" fill="url(#gold)" />
+
+	<!-- Sparkle Stars -->
+	<circle cx="60" cy="40" r="2" fill="#ffffff" />
+	<circle cx="200" cy="60" r="1.5" fill="#ffffff" />
+	<circle cx="180" cy="220" r="2" fill="#ffffff" />
+</svg>

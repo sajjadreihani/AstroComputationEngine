@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AstroComputationEngine.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="10">
+
+            <!-- Birth DateTime -->
+            <Label Text="Birth Date and Time" />
+            <DatePicker x:Name="BirthDatePicker"/>
+            <TimePicker x:Name="BirthTimePicker" />
+
+            <!-- City AutoComplete -->
+            <Label Text="Birth City" />
+            <SearchBar x:Name="BirthCitySearchBar"
+                       Placeholder="Type your birth city name..."
+                       TextChanged="BirthCitySearchBar_TextChanged"
+                       SearchCommand="{Binding BirthSearchCommand}" />
+
+            <CollectionView x:Name="BirthCityResults"
+                            IsVisible="False"
+                            ItemsSource="{Binding BirthCities}"
+                            HeightRequest="150"
+                            SelectionMode="Single"
+                            SelectionChanged="BirthCityResults_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding DisplayName}" Padding="10" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Current DateTime -->
+            <Label Text="Current Date and Time" />
+            <DatePicker x:Name="CurrentDatePicker" />
+            <Grid>
+                <Label
+                    WidthRequest="260"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    Text="Entire Day" />
+                <CheckBox
+                    IsChecked="{Binding IsWholeDay}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    CheckedChanged="OnWholeDayClicked"/>
+            </Grid>
+            <TimePicker x:Name="CurrentTimePicker" />
+            <Label Text="Current City" />
+            <SearchBar x:Name="CurrentCitySearchBar"
+                       Placeholder="Type your current city name..."
+                       TextChanged="CurrentCitySearchBar_TextChanged"
+                       SearchCommand="{Binding CurrentSearchCommand}" />
+
+            <CollectionView x:Name="CurrentCityResults"
+                            IsVisible="False"
+                            ItemsSource="{Binding CurrentCities}"
+                            HeightRequest="150"
+                            SelectionMode="Single"
+                            SelectionChanged="CurrentCityResults_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding DisplayName}" Padding="10" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Label Text="Choose AI Model:" FontAttributes="Bold" />
+
+                <Picker
+            Title="AI Model"
+            ItemsSource="{Binding Models}"
+            ItemDisplayBinding="{Binding Name}"
+            SelectedItem="{Binding SelectedModel}" />
+            </VerticalStackLayout>
+            
+            <Button
+                x:Name="PromptBtn"
+                Text="Copy as prompt" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnPromptClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CopyBtn"
+                Text="Copy raw ascpects" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnCopyClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="AIBtn"
+                Text="Analyze by AI" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnAIClicked"
+                HorizontalOptions="Fill" />
+
+            <ActivityIndicator
+                x:Name="LoadingIndicator"
+                IsRunning="False" 
+                IsVisible="False" 
+                Color="DodgerBlue" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+
+            <Label x:Name="AnalyzeResult" FlowDirection="RightToLeft" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

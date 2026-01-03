@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AstroComputationEngine.DavisonPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="10">
+
+            <Label Text="First Date and Time" />
+            <DatePicker x:Name="FirstDatePicker"/>
+            <TimePicker x:Name="FirstTimePicker" />
+
+            <Label Text="First City" />
+            <SearchBar x:Name="FirstCitySearchBar"
+                       Placeholder="Type first city name..."
+                       TextChanged="FirstCitySearchBar_TextChanged"
+                       SearchCommand="{Binding FirstSearchCommand}" />
+
+            <CollectionView x:Name="FirstCityResults"
+                            IsVisible="False"
+                            ItemsSource="{Binding FirstCities}"
+                            HeightRequest="150"
+                            SelectionMode="Single"
+                            SelectionChanged="FirstCityResults_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding DisplayName}" Padding="10" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Second Date and Time" />
+            <DatePicker x:Name="SecondDatePicker" />
+            <TimePicker x:Name="SecondTimePicker" />
+            <Label Text="Second City" />
+            <SearchBar x:Name="SecondCitySearchBar"
+                       Placeholder="Type your second city name..."
+                       TextChanged="SecondCitySearchBar_TextChanged"
+                       SearchCommand="{Binding CurrentSearchCommand}" />
+
+            <CollectionView x:Name="SecondCityResults"
+                            IsVisible="False"
+                            ItemsSource="{Binding SecondCities}"
+                            HeightRequest="150"
+                            SelectionMode="Single"
+                            SelectionChanged="SecondCityResults_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding DisplayName}" Padding="10" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Current Date" />
+            <DatePicker x:Name="CurrentDatePicker" />
+
+
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Label Text="Choose AI Model:" FontAttributes="Bold" />
+
+                <Picker
+            Title="AI Model"
+            ItemsSource="{Binding Models}"
+            ItemDisplayBinding="{Binding Name}"
+            SelectedItem="{Binding SelectedModel}" />
+            </VerticalStackLayout>
+
+            <Button
+                x:Name="PromptBtn"
+                Text="Copy as prompt" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnPromptClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="CopyBtn"
+                Text="Copy raw ascpects" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnCopyClicked"
+                HorizontalOptions="Fill" />
+
+            <Button
+                x:Name="AIBtn"
+                Text="Analyze by AI" 
+                IsEnabled="{Binding IsValid}"
+                Clicked="OnAIClicked"
+                HorizontalOptions="Fill" />
+
+            <ActivityIndicator
+                x:Name="LoadingIndicator"
+                IsRunning="False" 
+                IsVisible="False" 
+                Color="DodgerBlue" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"/>
+
+            <Label x:Name="AnalyzeResult" FlowDirection="RightToLeft" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

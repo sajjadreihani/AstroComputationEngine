@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AstroComputationEngine.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AstroComputationEngine"
+    Title="AstroComputationEngine">
+
+    <FlyoutItem Title="Daily Analyzer">
+        <ShellContent Title="Daily Analyzer" ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Composite Analyzer">
+        <ShellContent Title="Composite Analyzer" ContentTemplate="{DataTemplate local:CompositePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Davison Analyzer">
+        <ShellContent Title="Davison Analyzer" ContentTemplate="{DataTemplate local:DavisonPage}" />
+    </FlyoutItem>
+
+</Shell>

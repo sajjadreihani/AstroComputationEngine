@@ -1,0 +1,24 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" fill="none">
+	<rect width="100%" height="100%" fill="url(#spaceGradient)" />
+	<!-- Stars -->
+	<circle cx="100" cy="100" r="1.5" fill="white" />
+	<circle cx="300" cy="200" r="1" fill="white" />
+	<circle cx="500" cy="150" r="1.2" fill="white" />
+	<circle cx="700" cy="300" r="1.4" fill="white" />
+	<!-- Zodiac Wheel -->
+	<circle cx="400" cy="300" r="150" stroke="gold" stroke-width="3" fill="none" />
+	<!-- AI Brain Overlay (stylized with star path) -->
+	<path d="M400 180 C440 220, 440 380, 400 420 C360 380, 360 220, 400 180 Z" stroke="gold" fill="none" stroke-width="2" />
+	<circle cx="400" cy="180" r="4" fill="gold" />
+	<circle cx="440" cy="300" r="4" fill="gold" />
+	<circle cx="400" cy="420" r="4" fill="gold" />
+	<circle cx="360" cy="300" r="4" fill="gold" />
+	<!-- Title -->
+	<text x="400" y="540" font-family="Georgia, serif" font-size="36" fill="gold" text-anchor="middle">AstroMind AI</text>
+	<defs>
+		<radialGradient id="spaceGradient" cx="0.5" cy="0.5" r="0.8">
+			<stop offset="0%" stop-color="#2b0057" />
+			<stop offset="100%" stop-color="#0b001a" />
+		</radialGradient>
+	</defs>
+</svg>
